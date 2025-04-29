@@ -1,0 +1,17 @@
+html, body {
+    margin: 0;
+    padding: 0;
+
+    background-color: #02010A;
+    color: #FCFCFC;
+    font-family: Helvetica, sans-serif;
+
+    margin-left: 1vw;
+}
+
+h1 {
+    font-size: medium;
+    font-weight: 600;
+
+    margin-top: 1.5em;
+}

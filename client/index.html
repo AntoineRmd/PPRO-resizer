@@ -2,13 +2,37 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Your First Panel</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Resizer</title>
 </head>
 <body>
-    /* Simple HTML UI elements to get us started. */
-    <h1>Your first panel in 6 easy steps</h1>
-    <button id="open-button">Open</button>
-    /* Add your script dependencies here. */
+    <h1>Target sequence</h1>
+    <select id="sequenceSelector">
+        <option value="">Current sequence</option>
+    </select>
+    <button id="loadSequences">🔁 Reload sequences</button>
+
+    <h1>Target resolution</h1>
+    <select id="resolutionSelector">
+        <option value="custom">Custom</option>
+        <hr>
+        <optgroup label="16:9 & DCI">
+            <option value="fhd">FHD 1920 x 1080</option>
+            <option value="uhd">4K UHD 3840 x 2160</option>
+            <option value="4kdci">4K DCI 4096 x 2160</option>
+        </optgroup>
+        <hr>
+        <optgroup label="Vertical">
+            <option value="vertical-fhd">Vertical FHD 1080 x 1920</option>
+            <option value="vertical-udh">Vertical 4K UHD 2160 x 3840</option>
+            <option value="vertical-4kdci">Vertical 4K DCI 2160 x 4096</option>
+        </optgroup>
+    </select>
+
+    <button id="resize">Resize</button>
+
+    <p><span id="numberResized"></span> clips resized</p>
+      
     <script type="text/javascript" src="CSInterface.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </body>
