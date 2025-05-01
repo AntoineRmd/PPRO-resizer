@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html class="sl-theme-dark">
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style.css">
+
+    <!-- Shoelace CDN / info: https://shoelace.style/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>    
+
     <title>Resizer</title>
 </head>
 <body>
@@ -13,6 +18,21 @@
     <button id="loadSequences">🔁 Reload sequences</button>
 
     <h1>Target resolution</h1>
+    <sl-dropdown>
+        <sl-button slot="trigger" caret>Dropdown</sl-button>
+        <sl-menu>
+            <sl-menu-item>Custom</sl-menu-item>
+            <sl-divider></sl-divider>
+            <sl-menu-item>FHD 1920 x 1080</sl-menu-item>
+            <sl-menu-item>4K UHD 3840 x 2160</sl-menu-item>
+            <sl-menu-item>4K DCI 4096 x 2160</sl-menu-item>
+            <sl-divider></sl-divider>
+            <sl-menu-item>Vertical FHD 1080 x 1920</sl-menu-item>
+            <sl-menu-item>Vertical 4K UHD 2160 x 3840</sl-menu-item>
+            <sl-menu-item>Vertical 4K DCI 2160 x 4096</sl-menu-item>
+        </sl-menu>
+      </sl-dropdown>
+
     <select id="resolutionSelector">
         <option value="custom">Custom</option>
         <hr>
@@ -29,7 +49,7 @@
         </optgroup>
     </select>
 
-    <button id="resize">Resize</button>
+    <sl-button id="resize" variant="primary" size="small" pill>Resize⚡</sl-button>
 
     <p><span id="numberResized"></span> clips resized</p>
       
