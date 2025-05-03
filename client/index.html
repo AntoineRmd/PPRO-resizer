@@ -11,48 +11,41 @@
     <title>Resizer</title>
 </head>
 <body>
-    <h1>Target sequence</h1>
-    <select id="sequenceSelector">
-        <option value="">Current sequence</option>
-    </select>
-    <button id="loadSequences">🔁 Reload sequences</button>
+    <sl-select id="sequenceSelector" label="Target sequence" value="active" size="small">
+        <sl-option value="active">Active sequence</sl-option>
+        <sl-divider></sl-divider>
+    </sl-select>
 
-    <h1>Target resolution</h1>
-    <sl-dropdown>
-        <sl-button slot="trigger" caret>Dropdown</sl-button>
-        <sl-menu>
-            <sl-menu-item>Custom</sl-menu-item>
-            <sl-divider></sl-divider>
-            <sl-menu-item>FHD 1920 x 1080</sl-menu-item>
-            <sl-menu-item>4K UHD 3840 x 2160</sl-menu-item>
-            <sl-menu-item>4K DCI 4096 x 2160</sl-menu-item>
-            <sl-divider></sl-divider>
-            <sl-menu-item>Vertical FHD 1080 x 1920</sl-menu-item>
-            <sl-menu-item>Vertical 4K UHD 2160 x 3840</sl-menu-item>
-            <sl-menu-item>Vertical 4K DCI 2160 x 4096</sl-menu-item>
-        </sl-menu>
-      </sl-dropdown>
+    <sl-button id="loadSequences" size="small" pill>Reload sequences 🔁</sl-button>
 
-    <select id="resolutionSelector">
-        <option value="custom">Custom</option>
-        <hr>
-        <optgroup label="16:9 & DCI">
-            <option value="fhd">FHD 1920 x 1080</option>
-            <option value="uhd">4K UHD 3840 x 2160</option>
-            <option value="4kdci">4K DCI 4096 x 2160</option>
-        </optgroup>
-        <hr>
-        <optgroup label="Vertical">
-            <option value="vertical-fhd">Vertical FHD 1080 x 1920</option>
-            <option value="vertical-udh">Vertical 4K UHD 2160 x 3840</option>
-            <option value="vertical-4kdci">Vertical 4K DCI 2160 x 4096</option>
-        </optgroup>
-    </select>
+    <sl-select id="resolutionSelector" label="Target resolution" size="small">
+        <sl-option value="custom">Custom</sl-option>
+        <sl-divider></sl-divider>
+        <sl-option value="fhd">FHD 1920 x 1080</sl-option>
+        <sl-option value="4kuhd">4K UHD 3840 x 2160</sl-option>
+        <sl-option value="4kdci">4K DCI 4096 x 2160</sl-option>
+        <sl-divider></sl-divider>
+        <sl-option value="v-fhd">Vertical FHD 1080 x 1920</sl-option>
+        <sl-option value="v-4kuhd">Vertical 4K UHD 2160 x 3840</sl-option>
+        <sl-option value="v-4kdci">Vertical 4K DCI 2130 x 4096</sl-option>
+    </sl-select>
+
+    <sl-input id="resolutionWidth" label="Width" size="small"></sl-input>
+    <sl-input id="resolutionHeight" label="Height" size="small"></sl-input>
+
+    <sl-switch id="doUpsizeOption">Upsize smaller clips</sl-switch>
 
     <sl-button id="resize" variant="primary" size="small" pill>Resize⚡</sl-button>
 
-    <p><span id="numberResized"></span> clips resized</p>
+    <sl-spinner></sl-spinner>
+    <span><span id="numberResized"></span> clips resized</span>
+
+    <sl-alert id="upsizeWarning" variant="warning" open>
+        <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+        Some clips have been upsized.
+      </sl-alert>
       
+    <!-- Scripts -->
     <script type="text/javascript" src="CSInterface.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </body>
